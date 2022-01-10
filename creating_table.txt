@@ -1,5 +1,12 @@
-load data infile 'data\_linklist.csv'
-into table linklist
-fields terminated by ','
-lines terminated by '\n'
-ignore 1 rows;
+BULK INSERT linklist
+FROM 'E:\_ELTE_PHYS_MSC\3_third_semester\datamodelling\project\_linklist.csv'
+WITH
+    (
+    FIRSTROW = 2,
+    FIELDTERMINATOR = ',',  --CSV field delimiter
+    ROWTERMINATOR = '\n',  
+    ERRORFILE = 'E:\_ELTE_PHYS_MSC\3_third_semester\datamodelling\project\sLLErrorRows.csv',
+    TABLOCK
+    );
+
+-- failed attempt due to bulk insert problems
