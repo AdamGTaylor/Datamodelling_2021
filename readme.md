@@ -37,7 +37,7 @@
         load data infile 'data\_linklist.csv'
         into table linklist
         fields terminated by ','
-        lines terminated by '\n'
+        lines terminated by '\r\n'
         ignore 1 rows;
     
     The location of the file is:
