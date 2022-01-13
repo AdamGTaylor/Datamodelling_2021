@@ -33,9 +33,20 @@
             uuid2 varchar(255) NOT NULL
         );
 
+        create table decoding (
+            character varchar(255) NOT NULL,
+            uuid varchar(255) NOT NULL
+        );
+
     The way the .csv files is loaded is:
         load data infile 'data\_linklist.csv'
         into table linklist
+        fields terminated by ','
+        lines terminated by '\r\n'
+        ignore 1 rows;
+
+        load data infile 'data\_decoding.csv'
+        into table decoding
         fields terminated by ','
         lines terminated by '\r\n'
         ignore 1 rows;
